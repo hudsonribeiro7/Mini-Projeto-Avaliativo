@@ -1,0 +1,32 @@
+import { PokemonApiResponse, PokemonResumo } from '../models/Pokemon';
+
+export async function buscarPokemon(nomeOuId: string): Promise<PokemonResumo | null> {
+  const url = `https://pokeapi.co/api/v2/pokemon/${nomeOuId.toLowerCase()}`;
+
+  try {
+    const resposta = await fetch(url);
+    
+    if (!resposta.ok) {
+      console.log(`[ERRO] Pokémon não encontrado: ${nomeOuId}`);
+      return null;
+    }
+
+    const dados: PokemonApiResponse = await resposta.json();
+
+    // Mapeamento dos dados para o objeto simplificado (RF06)
+    const pokemonResumido: PokemonResumo = {
+      id: dados.id,
+      nome: dados.name,
+      tipos: dados.types.map((item) => item.type.name),
+      altura: dados.height,
+      peso: dados.weight,
+    };
+
+    console.log(`[OK] Pokémon encontrado: ${pokemonResumido.nome}`);
+    return pokemonResumido;
+
+  } catch (erro) {
+    console.log(`[ERRO] Não foi possível buscar o Pokémon: ${nomeOuId}`);
+    return null;
+  }
+}

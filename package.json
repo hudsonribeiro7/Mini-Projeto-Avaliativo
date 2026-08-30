@@ -1,0 +1,14 @@
+{
+  "name": "pokedex-typescript-lite",
+  "version": "1.0.0",
+  "description": "Mini projeto de Pokedex com Node.js e TypeScript",
+  "scripts": {
+    "dev": "tsx src/main.ts","start": "tsx src/main.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
