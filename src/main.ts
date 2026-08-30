@@ -10,9 +10,23 @@ async function main() {
     catalogo.adicionar(pikachu);
   }
 
+  const charmander = await buscarPokemon("charmander");
+
+  if (charmander !== null) {
+    catalogo.adicionar(charmander);
+  }
+
+  const pikachuDuplicado = await buscarPokemon("pikachu");
+
+  if (pikachuDuplicado !== null) {
+    catalogo.adicionar(pikachuDuplicado);
+  }
+
+  await buscarPokemon("pokemon-inexistente");
+
   catalogo.listar();
 
-catalogo.remover(999);
+  catalogo.remover(25);
 
   catalogo.listar();
 }
