@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Mini projeto de Pokedex com Node.js e TypeScript",
   "scripts": {
-    "dev": "tsx src/main.ts",
+    "dev": "tsx src/main.ts","start": "tsx src/main.ts",
     "build": "tsc"
   },
   "devDependencies": {
